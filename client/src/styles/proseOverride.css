@@ -1,0 +1,20 @@
+/* Override prose child selectors
+  Add this wrapper class: 
+*/
+
+/* client/src/styles/proseOverride.css */
+.prose-styled {
+  --tw-prose-body: #111; /* darker text */
+  --tw-prose-headings: #000;
+  --tw-prose-lead: #111;
+  --tw-prose-links: #1d4ed8;
+  --tw-prose-bold: #000;
+  --tw-prose-lists: #111;
+  --tw-prose-quotes: #444;
+}
+
+/* Use it in SinglePost:
+  <div className="prose prose-styled max-w-none">
+    <MarkdownRenderer content={post.content} />
+  </div> 
+*/

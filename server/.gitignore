@@ -1,0 +1,52 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.*  # in case of .env.development, .env.test, etc.
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.tmp/
+temp/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Coverage reports
+coverage/
+
+# Optional npm cache directory
+.npm/
+
+# Debugging files
+*.local
+
+# Test output
+test-output/
+
+# Others (if applicable)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Mac-specific metadata
+.AppleDouble
+.LSOverride

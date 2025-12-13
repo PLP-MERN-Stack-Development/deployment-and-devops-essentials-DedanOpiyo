@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "./styles/proseOverride.css";
+
+/* LIGHT THEME */
+/* Force UIW Markdown Editor to be white */
+.w-md-editor {
+  background-color: white !important;
+  color: black !important;
+}
+
+.w-md-editor .w-md-editor-toolbar,
+.w-md-editor .w-md-editor-text {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Preview panel */
+.w-md-editor-preview {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* DARK THEME */
+.md-editor-dark .w-md-editor,
+.md-editor-dark .w-md-editor-toolbar,
+.md-editor-dark .w-md-editor-text,
+.md-editor-dark .w-md-editor-preview {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+}
+
+/* client/src/editor/rehypeResizableImages.js - resizing img in MDEditor */
+.resizable-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.resize-handle {
+  width: 14px;
+  height: 14px;
+  background: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.handle-se { right: -8px; bottom: -8px; cursor: se-resize; }
+.handle-sw { left: -8px; bottom: -8px; cursor: sw-resize; }
+.handle-ne { right: -8px; top: -8px; cursor: ne-resize; }
+.handle-nw { left: -8px; top: -8px; cursor: nw-resize; }
+
+.resizable-wrapper.dragging {
+  outline: 2px dashed #aaa;
+}
+
+/* client/src/payment/PaymentReceipt.jsx - Print Receipt Styling */
+@media print {
+  nav, footer, button, .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+}
