@@ -22,7 +22,7 @@ function SinglePost() {
     try {
         setLoadingComment(true);
         const updatedPost = await postService.addComment(id, comment);
-        console.log("UPDATED POST: ", updatedPost)
+        // console.log("UPDATED POST: ", updatedPost)
         setPost(updatedPost.post);
         setComment(""); // clear input
     } catch (err) {
