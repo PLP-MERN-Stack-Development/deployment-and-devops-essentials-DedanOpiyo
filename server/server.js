@@ -51,7 +51,17 @@ const allowedOrigins =
     : defaultOrigins;
 
 const corsOptions = {
-  origin: allowedOrigins,
+  // origin: allowedOrigins,
+  origin: (origin, callback) => {
+    // Allow server-to-server / Postman / mobile apps
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true,        // allow cookies
 };
 
