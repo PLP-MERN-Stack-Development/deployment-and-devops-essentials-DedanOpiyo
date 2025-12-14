@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import { Link } from "react-router-dom";
+import clinicImg from "../assets/clinic.jpg";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative rounded-xl overflow-hidden shadow-md">
         <img
-          src="../src/assets/clinic.jpg"
+          src={clinicImg}
           alt="Clinic"
           className="w-full h-92 sm:h-112 object-cover"
         />
