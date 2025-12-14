@@ -67,7 +67,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // VERY IMPORTANT
+// app.options(/.*/, cors(corsOptions)); // Explicit options handling (optional, safe)
 app.use(cookieParser());
 
 // ---------------------------
