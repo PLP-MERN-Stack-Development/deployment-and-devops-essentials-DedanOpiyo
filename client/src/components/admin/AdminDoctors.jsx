@@ -1,5 +1,6 @@
 // src/pages/admin/AdminDoctors.jsx
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import adminService from "../../services/adminService";
 import AdminLayout from "../../components/admin/AdminLayout";
 
@@ -65,12 +66,12 @@ export default function AdminDoctors() {
 
             <div className="flex items-center gap-3">
               {/* Admin editing doctor goes to a dedicated page */}
-              <a
+              <Link
                 href={`/admin/doctors/${d._id}/edit`}
                 className="bg-indigo-600 text-white px-4 py-2 rounded text-center"
                 >
                 Edit
-              </a>
+              </Link>
 
               <button
                 onClick={() => deleteDoctor(d._id)}

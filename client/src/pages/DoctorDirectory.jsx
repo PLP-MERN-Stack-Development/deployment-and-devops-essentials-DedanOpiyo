@@ -1,5 +1,6 @@
 // src/pages/DoctorDirectory.jsx
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import doctorService from "../services/doctorService";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -54,12 +55,12 @@ export default function DoctorDirectory() {
                 {doc.bio?.substring(0, 100)}...
               </p>
 
-              <a
+              <Link
                 href={`/doctor/${doc._id}`}
                 className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
               >
                 View Profile
-              </a>
+              </Link>
             </div>
           ))}
         </div>
