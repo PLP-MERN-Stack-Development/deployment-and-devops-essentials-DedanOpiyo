@@ -11,6 +11,9 @@ const path = require("path");
 const logoPath = path.join(process.cwd(), "assets", "logo.png");
 
 exports.initiateSTK = async (req, res) => {
+  console.log('🔥 initiateSTK hit');
+  console.log('Headers:', req?.headers);
+  console.log('Body:', JSON.stringify(req.body, null, 2));
   try {
     const { appointmentId, phone, amount } = req.body;
 

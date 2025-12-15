@@ -4,6 +4,9 @@ const { sendNotification } = require("../utils/sendNotification.js");
 
 exports.mpesaCallback = async (req, res) => {
   try {
+    console.log('🔥 Callback hit');
+    console.log('Headers:', req?.headers);
+    console.log('Body:', JSON.stringify(req.body, null, 2));
     const body = req.body;
 
     const callback = body.Body.stkCallback;
