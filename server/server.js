@@ -137,7 +137,7 @@ app.use("/api/help", helpRoutes);
 app.use("/api/blog", blogMediaRoutes);
 
 app.use("/api/notifications", notificationRoutes);
-app.use("/api/payments", paymentRoutes);
+app.use("/api/payment", paymentRoutes);
 app.use("/api/admin/fee-policies", adminFeePolicyRoutes);
 
 app.use("/api/refunds", refundRoutes);

@@ -2,6 +2,7 @@
 const axios = require("axios");
 const Payment = require("../models/Payment.js");
 const { getMpesaToken } = require("../utils/mpesaToken.js");
+const { formatPhoneNumber } = require("../utils/formattedPhone.js");
 const Appointment = require("../models/Appointment.js");
 const { sendNotification } = require("../utils/sendNotification.js");
 
@@ -16,6 +17,7 @@ exports.initiateSTK = async (req, res) => {
   console.log('Body:', JSON.stringify(req.body, null, 2));
   try {
     const { appointmentId, phone, amount } = req.body;
+    const formattedPhone = formatPhoneNumber(phone);
 
     const appointment = await Appointment.findById(appointmentId);
     if (!appointment) return res.status(404).json({ msg: "Appointment not found" });
@@ -35,7 +37,7 @@ exports.initiateSTK = async (req, res) => {
     const payment = await Payment.create({
       appointment: appointmentId,
       patient: req.user._id,
-      phone,
+      phone: formattedPhone,
       amount,
     });
 
@@ -52,9 +54,9 @@ exports.initiateSTK = async (req, res) => {
         Timestamp: timestamp,
         TransactionType: "CustomerPayBillOnline",
         Amount: amount,
-        PartyA: phone,
+        PartyA: formattedPhone,
         PartyB: process.env.MPESA_SHORTCODE,
-        PhoneNumber: phone,
+        PhoneNumber: formattedPhone,
         CallBackURL: process.env.MPESA_CALLBACK_URL,
         AccountReference: appointmentId,
         TransactionDesc: "Appointment Payment",

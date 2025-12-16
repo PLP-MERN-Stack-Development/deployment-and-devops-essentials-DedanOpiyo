@@ -26,6 +26,7 @@ export default function BookAppointment() {
   const [proposedFee, setProposedFee] = useState("");
 
   const load = async () => {
+    setAppointment({_id: "69335290e5a7cfa204d1f418", fee: 1});
     try {
       const d = await doctorService.getById(doctorId);
       setDoctor(d);
